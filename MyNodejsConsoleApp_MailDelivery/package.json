@@ -1,0 +1,9 @@
+{
+  "name": "my-nodejs-console-app_mail-delivery",
+  "version": "0.0.0",
+  "description": "MyNodejsConsoleApp_MailDelivery",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
