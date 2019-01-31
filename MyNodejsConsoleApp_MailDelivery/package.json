@@ -5,5 +5,9 @@
   "main": "app.js",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "formidable": "^1.2.1",
+    "upper-case": "^1.1.3"
   }
 }
