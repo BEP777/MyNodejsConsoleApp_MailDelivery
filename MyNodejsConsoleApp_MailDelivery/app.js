@@ -1,22 +1,59 @@
 var http = require('http');
+var formidable = require('formidable');
 var fs = require('fs');
-var url = require('url');
-var events = require('events');
-//var upper = require('node_modules/upper-case/upper-case.js');
-var uc = require('upper-case');
 
-var eventEmitter = new events.EventEmitter();
+//create the server
+http.createServer(function (req, res) {
+    if (req.url == '/fileupload') { //if the client pushed on the send file button
+        var form = new formidable.IncomingForm();
+        form.parse(req, function (err, fields, files) {
+            var oldpath = files.filetoupload.path;
+            var newpath = 'C:/Users/avsha/workspace/' + files.filetoupload.name;
+            //rename the file 
+            fs.rename(oldpath, newpath, function (err) {
+                if (err) throw err;
+                res.write('File uploaded and moved!');
+                res.end();
+            });
+        });
+    } else {
+        //send the html to the user
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+        res.write('<input type="file" name="filetoupload"><br>');
+        res.write('<input type="submit">');
+        res.write('</form>');
+        return res.end();
+    }
+}).listen(8080);
 
-//Create an event handler:
-var myEventHandler = function () {
-    console.log("i hear a scream!");
-}
 
-//Assign the event handler to an event:
-eventEmitter.on('scream', myEventHandler);
 
-//Fire the 'scream' event:
-eventEmitter.emit('scream');
+
+
+
+
+
+
+
+
+
+
+
+
+
+//var eventEmitter = new events.EventEmitter();
+
+////Create an event handler:
+//var myEventHandler = function () {
+//    console.log("i hear a scream!");
+//}
+
+////Assign the event handler to an event:
+//eventEmitter.on('scream', myEventHandler);
+
+////Fire the 'scream' event:
+//eventEmitter.emit('scream');
 
 
 //http.createServer(function (req, res) {
@@ -24,8 +61,6 @@ eventEmitter.emit('scream');
 //    res.write(uc("Hello World!"));
 //    res.end();
 //}).listen(8080);
-
-
 
 ////create the server
 //http.createServer(function (req, res) {
@@ -45,7 +80,7 @@ eventEmitter.emit('scream');
 //        return res.end(); 
 //    });
 //}).listen(8080);
-
+                                                                                                  
 //create a file named mynewfile1.txt:
 //fs.unlink('mynewfile1.txt', function (err) {
 //fs.appendFile('mynewfile1.txt', 'this is update', function (err) {
@@ -53,3 +88,14 @@ eventEmitter.emit('scream');
 //    console.log('Saved!');
 //});
 
+
+
+
+
+
+//var http = require('http');
+//var fs = require('fs');
+//var url = require('url');
+//var events = require('events');
+//var uc = require('upper-case');
+//var formidable = require('formidable');

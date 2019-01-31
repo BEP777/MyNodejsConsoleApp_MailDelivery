@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "formidable": "^1.2.1",
+    "nodemailer": "^5.1.1",
     "upper-case": "^1.1.3"
   }
 }
