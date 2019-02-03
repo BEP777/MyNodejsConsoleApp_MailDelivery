@@ -2,8 +2,8 @@ var fs = require('fs');
 var nodemailer = require('nodemailer');
 
 //content of the mail
-var subject = 'sssssssssssssss';
-var content = 'ccccccccccccccc';
+var subject = 'SURPRISE';
+var content = 'Jingle bells, jingle bells Jingle all the way!';
 //adresses
 var mailFrom;
 var password;
@@ -18,6 +18,7 @@ mailFrom = contentsMailFrom[0];
 password = contentsMailFrom[1];
 mailTo = contentsMailTo;
 
+
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -29,8 +30,8 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
     from: mailFrom,
     to: mailTo,
-    subject: subject , 
-    text: content 
+    subject: subject,
+    text: content
 };
 
 transporter.sendMail(mailOptions, function (error, info) {
@@ -40,3 +41,7 @@ transporter.sendMail(mailOptions, function (error, info) {
         console.log('Email sent: ' + info.response);
     }
 });
+
+
+
+
