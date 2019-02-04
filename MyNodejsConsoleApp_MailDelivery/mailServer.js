@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var srv = nsHttp.createServer(function (req, res) {
     var pathname = nsUrl.parse(req.url).pathname;
     console.log("path is "+pathname);
-    console.log("exxxxxxxxxxxxxxxit");
+    //console.log("exxxxxxxxxxxxxxxit");
     // check URL to send the right response
     switch (pathname) {
         case "/favicon.ico":
