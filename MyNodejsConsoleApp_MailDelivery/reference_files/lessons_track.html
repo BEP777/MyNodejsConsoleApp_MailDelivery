@@ -4,149 +4,144 @@
 //-->
 <head>
     <meta charset="utf-8" />
-    <!--
-        <link rel="stylesheet" type="text/css" href="MyStyle.css">
-        <link rel="stylesheet" type="text/css" href="MyActualStyle.css">
-        //-->
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <link rel="stylesheet" type="text/css" href="MyActualStyle.css">
     <title>LESSONS TRACK</title>
 </head>
-    <body>
-        <div class="table-title">
-            <h3>מעקב שיעורים פרטיים - אבשלום</h3>
-        </div>
-        <script src="myscripts.js">
-            function chooseDay() {
-                var e = document.getElementById("day_pick");
-                var dayUser = e.options[e.selectedIndex].text;
-                console.log(`var=${dayUser}`);
-            }
+            <body>
+                <div class="table-title">
+                    <h2>מעקב שיעורים פרטיים - אבשלום</h2>
+                </div>
+                <script src="myscripts.js">
+                    function chooseDay() {
+                        var e = document.getElementById("day_pick");
+                        var dayUser = e.options[e.selectedIndex].text;
+                        console.log(`var=${dayUser}`);
+                    }
 
-            function chooseMonth() {
-                var e = document.getElementById("month_pick");
-                var monthUser = e.options[e.selectedIndex].text;
-                console.log(`var=${monthUser}`);
-            }
+                    function chooseMonth() {
+                        var e = document.getElementById("month_pick");
+                        var monthUser = e.options[e.selectedIndex].text;
+                        console.log(`var=${monthUser}`);
+                    }
 
-            function chooseNumOfLessons() {
-                var e = document.getElementById("num_of_lessons_pick");
-                var dayUser = e.options[e.selectedIndex].text;
-                console.log(`var=${dayUser}`);
-            }
+                    function chooseNumOfLessons() {
+                        var e = document.getElementById("num_of_lessons_pick");
+                        var dayUser = e.options[e.selectedIndex].text;
+                        console.log(`var=${dayUser}`);
+                    }
 
-            function getLessomContent() {
-                var content = document.getElementById("lesson_matirial").value;
-                console.log(`var=${content}`);
-            }
+                    function getLessomContent() {
+                        var content = document.getElementById("lesson_matirial").value;
+                        console.log(`var=${content}`);
+                    }
 
-            function getComments() {
-                var comments = document.getElementById("lesson_comments").value;
-                console.log(`var=${comments}`);
-            }
-        </script>
-        <table class="table-fill">
-            <thead>
-                <tr>
-                    <th class="text-center"></th>
-                    <th class="text-center">פרטי השיעור</th>
-                </tr>
-            </thead>
-            <tbody class="table-hover">
+                    function getComments() {
+                        var comments = document.getElementById("lesson_comments").value;
+                        console.log(`var=${comments}`);
+                    }
+                </script>
+                <table class="table-fill">
+                    <thead>
+                        <tr>
+                            <th class="text-center"></th>
+                            <th class="text-center">פרטי השיעור</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                        <tr>
+                            <td class="text-center">
+                                <div class="currency">
+                                    <select class="custom-select" id="day_pick">
+                                        <option value="0">בחר יום</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="text-center">יום</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="currency">
+                                    <select class="custom-select" id="month_pick">
+                                        <option value="0">בחר חודש</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="text-center">חודש</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <div class="currency">
+                                    <select class="custom-select" id="num_of_lessons_pick">
+                                        <option value="0">מס' שיעורים</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="text-center">מספר שיעורים</td>
+                        </tr>
+                        <tr>
+                                <td align="left"><input class="text-center" align="right" type="text" id="lesson_matirial" /></td>
 
-                <tr>
-                    <td align="left">
-                        <div class="currency">
-                            <select class="custom-select" id="day_pick">
-                                <option value="0">בחר יום</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td class="text-center">יום</td>
-                </tr>
-                <tr>
-                    <td class="text-center">
-                        <div class="currency">
-                            <select class="custom-select" id="month_pick">
-                                <option value="0">בחר חודש</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td class="text-center">חודש</td>
-                </tr>
-                <tr>
-                    <td align="left">
-                        <div class="currency">
-                            <select class="custom-select" id="num_of_lessons_pick">
-                                <option value="0">מס' שיעורים</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td class="text-center">מספר שיעורים</td>
-                </tr>
-                <tr>
-                    <td align="left"><input class="currency" align="right" type="text" id="lesson_matirial" /></td>
-
-                    <td class="text-center">תוכן השיעור</td>
-                </tr>
-                <tr>
-                    <td align="left"><input class="currency" align="right" type="text" id="lesson_comments" /></td>
-                    <td class="text-center">הערות</td>
-                </tr>
-            </tbody>
-        </table>
-        <button onclick="chooseDay(); chooseMonth(); chooseNumOfLessons(); getLessomContent();
-        getComments()">
-            הזן שיעור
-        </button>
-        <button onclick="WriteFile()">
-            צור קובץ
-        </button>
-    </body>
-</html>
+                                <td class="text-center">תוכן השיעור</td>
+                        </tr>
+                        <tr>
+                            <td align="left"><input class="currency" align="center" type="text" id="lesson_comments" /></td>
+                            <td class="text-center">הערות</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button onclick="chooseDay(); chooseMonth(); chooseNumOfLessons(); getLessomContent();
+                getComments()">
+                    הזן שיעור
+                </button>
+                <button onclick="WriteFile()">
+                    צור קובץ
+                </button>
+            </body>
+        </html>

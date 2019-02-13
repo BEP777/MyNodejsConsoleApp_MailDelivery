@@ -1,6 +1,6 @@
 
 h1 {
-    color: navy;
+    color: black;
     margin-left: 20px;
     font-family: 'Amatic SC', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 48px;
@@ -25,6 +25,17 @@ div.table-title {
     width: 100%;
 }
 
+    div.table-title h2 {
+        font-size: 40px;
+        display: block;
+        margin: auto;
+        max-width: 600px;
+        padding: 5px;
+        width: 100%;
+        text-align: center;
+        color: #fafafa;
+    }
+
 .table-title h3 {
     font-size: 30px;
     font-weight: 700;
@@ -33,9 +44,9 @@ div.table-title {
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     text-transform: uppercase;
     text-align: center;
-    margin-left: 20px;
+    margin-left: 40px;
     font-family: 'Amatic SC', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 55px;
+    font-size: 50px;
     text-align: center;
     color: #fafafa;
 }
@@ -58,7 +69,6 @@ div.table-title {
 
 th {
     color: #D5DDE5;
-    ;
     background: #1b1e24;
     border-bottom: 4px solid #9ea7af;
     border-right: 1px solid #343a45;
@@ -121,10 +131,10 @@ tr {
 td {
     background: #FFFFFF;
     padding: 20px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 20px;
     text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
     border-right: 1px solid #C1C3D1;
 }
