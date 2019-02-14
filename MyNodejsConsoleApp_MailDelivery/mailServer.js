@@ -1,3 +1,5 @@
+//name: Avshalom Tam
+//This is server side
 var nsHttp = require("http");
 var nsUrl = require("url");
 var nsPath = require("path");
@@ -14,7 +16,7 @@ var srv = nsHttp.createServer(function (req, res) {
             break;
 
         case "/":
-            HTTP_SendHtmlFile(res, nsPath.join(__dirname, "lessonsTrackTry.html"));
+            HTTP_SendHtmlFile(res, nsPath.join(__dirname, "lessonsTrack.html"));
             break;
 
         case "/SaveLesson":
@@ -33,7 +35,6 @@ var srv = nsHttp.createServer(function (req, res) {
             sendDateToFile(pathname);
     }
 });
-
 
 // reads a file contents and sends, but if any error occur,
 // sends a 500 HTTP Status Code (Internal Server Error)
@@ -127,5 +128,4 @@ function sendTheMailWithNodemailer() {
     });
 
 }
-
 srv.listen(8080);

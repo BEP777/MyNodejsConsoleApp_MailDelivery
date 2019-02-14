@@ -1,91 +1,321 @@
-﻿<!DOCTYPE html>
+﻿<!--  name: Avshalom Tam  //-->
+<!--  This is client side  //-->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>LESSONS TRACK</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+        h1 {
+            font-size: 40px;
+            display: block;
+            margin: auto;
+            max-width: 600px;
+            padding: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        body {
+            background-color: #3e94ec;
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+        }
+
+        div.table-title {
+            display: block;
+            margin: auto;
+            max-width: 600px;
+            padding: 5px;
+            width: 100%;
+        }
+
+            div.table-title h2 {
+                font-size: 40px;
+                display: block;
+                margin: auto;
+                max-width: 600px;
+                padding: 5px;
+                width: 100%;
+                text-align: center;
+                color: #fafafa;
+            }
+
+        .table-title h3 {
+            font-size: 30px;
+            font-weight: 700;
+            font-style: normal;
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            text-align: center;
+            margin-left: 40px;
+            font-family: 'Amatic SC', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 50px;
+            text-align: center;
+            color: #fafafa;
+        }
+        /*** Table Styles **/
+        .table-fill {
+            background: white;
+            border-radius: 3px;
+            border-collapse: collapse;
+            height: 320px;
+            margin: auto;
+            max-width: 600px;
+            padding: 5px;
+            width: 100%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            animation: float 5s infinite;
+        }
+
+        th {
+            color: #D5DDE5;
+            background: #1b1e24;
+            border-bottom: 4px solid #9ea7af;
+            border-right: 1px solid #343a45;
+            font-size: 23px;
+            font-weight: 100;
+            padding: 24px;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            vertical-align: middle;
+        }
+
+            th:first-child {
+                border-top-left-radius: 3px;
+            }
+
+            th:last-child {
+                border-top-right-radius: 3px;
+                border-right: none;
+            }
+
+        tr {
+            border-top: 1px solid #C1C3D1;
+            color: #666B85;
+            font-size: 16px;
+            font-weight: normal;
+            text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+        }
+
+            tr:hover td {
+                background: #4E5066;
+                color: #FFFFFF;
+                border-top: 1px solid #22262e;
+            }
+
+            tr:first-child {
+                border-top: none;
+            }
+
+            tr:last-child {
+                border-bottom: none;
+            }
+
+            tr:nth-child(odd) td {
+                background: #EBEBEB;
+            }
+
+            tr:nth-child(odd):hover td {
+                background: #4E5066;
+            }
+
+            tr:last-child td:first-child {
+                border-bottom-left-radius: 3px;
+            }
+
+            tr:last-child td:last-child {
+                border-bottom-right-radius: 3px;
+            }
+
+        td {
+            background: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            vertical-align: middle;
+            font-weight: 300;
+            font-size: 20px;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #C1C3D1;
+        }
+
+            td:last-child {
+                border-right: 0px;
+            }
+
+        th.text-left {
+            text-align: left;
+        }
+
+        th.text-center {
+            text-align: center;
+            width: 10px;
+            height: 10px;
+        }
+
+        th.text-center-details {
+            text-align: center;
+            width: 100px;
+            height: 10px;
+        }
+
+        th.text-right {
+            text-align: right;
+        }
+
+        td.text-left {
+            text-align: left;
+        }
+
+        td.text-center {
+            text-align: center;
+        }
+
+        td.text-right {
+            text-align: right;
+        }
+
+        .custom-select {
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            position: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .currency-text {
+            width: 350px;
+            height: 25px;
+            text-align: center;
+            position: center;
+            vertical-align: central;
+        }
+
+        button {
+            background-color: #3e94ec;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+        }
+    </style>
 </head>
-<style>
-    h1 {
-        font-size: 40px;
-        display: block;
-        margin: auto;
-        max-width: 600px;
-        padding: 5px;
-        width: 100%;
-        text-align: center;
-    }
-</style>
 <body>
     <!-- page design
     //-->
-    <h1>מעקב שיעורים פרטיים - אבשלום תם</h1>
-    <select id="day_pick">
-        <option value="0">choose day</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-    </select>
-
-    <p></p>
-    <select id="month_pick">
-        <option value="0">choose month</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
-    <p></p>
-    <button type="button" onclick="save_lesson()">Save lesson details</button>
-    <p></p>
-    <button type="button" onclick="send_mail()">Send Mail</button>
-    <!-- functionality
-    //-->
+    <div class="table-title">
+        <h2>מעקב שיעורים פרטיים - אבשלום</h2>
+    </div>
+    <table class="table-fill">
+        <thead>
+            <tr>
+                <th class="text-center-details">פרטי השיעור</th>
+                <th class="text-center"></th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+            <tr>
+                <td class="text-center">
+                    <div class="currency">
+                        <select class="custom-select" id="day_pick">
+                            <option value="0">בחר יום</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="text-center">יום</td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    <div class="currency">
+                        <select class="custom-select" id="month_pick">
+                            <option value="0">בחר חודש</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="text-center">חודש</td>
+            </tr>
+            <tr>
+                <td align="left"><input class="currency-text" align="center" type="text" id="lesson_material" /></td>
+                <td class="text-center">תוכן השיעור</td>
+            </tr>
+            <tr>
+                <td align="left"><input class="currency-text" align="center" type="text" id="lesson_comments" /></td>
+                <td class="text-center">הערות</td>
+            </tr>
+            <tr>
+                <td align="left"><button onclick="save_lesson()">הזן שיעור לקובץ</button></td>
+                <td align="right"><button onclick="send_mail()">שלח במייל</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- functionality//-->
     <script>
         function save_lesson() {
+            //get the day
             var e = document.getElementById("day_pick");
             var dayUser = e.options[e.selectedIndex].text;
-
+            //get the month
             var e = document.getElementById("month_pick");
             var monthUser = e.options[e.selectedIndex].text;
-
+            //get the lesson content
+            var lessMaterialContent = document.getElementById("lesson_material").value;
+            //get the lesson content
+            var lessCommentContent = document.getElementById("lesson_comments").value;
+            //now make the http request
             var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("get", "Date**" + `${dayUser}` + "**" + `${monthUser}`);
+            xmlhttp.open("get", `${dayUser}` + "****" + `${monthUser}` +
+                "****" + `${lessMaterialContent}` + "****" + `${lessCommentContent}`);
 
             xmlhttp.onreadystatechange = function () {
                 // DONE
@@ -113,36 +343,7 @@
             };
             xmlhttp.send();
         }
-        function save_lesson2() {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("get", "/SaveLesson");
 
-            xmlhttp.onreadystatechange = function () {
-                // DONE
-                if (xmlhttp.readyState == 4) {
-                    switch (xmlhttp.status) {
-                        case 200:
-                            var e = document.getElementById("day_pick");
-                            var dayUser = e.options[e.selectedIndex].text;
-                            console.log(`var=${dayUser}`);
-
-                            var e = document.getElementById("month_pick");
-                            var monthUser = e.options[e.selectedIndex].text;
-                            console.log(`var=${monthUser}`);
-                            break;
-                        case 404:
-                            alert("Not Found");
-                            break;
-                        case 500:
-                            alert("Internal Server Error");
-                            break;
-                        default:
-                            alert("Unexpected Error. HTTP Status: " + xmlhttp.status);
-                    }
-                }
-            };
-            xmlhttp.send();
-        }
         function send_mail() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("get", "/SendMail");
