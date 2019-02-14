@@ -58,6 +58,8 @@ div.currency {
 }
 /*the container must be positioned relative:*/
 .custom-select {
+    width: 30px;
+    height: 40px;
     text-align: center;
     position: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

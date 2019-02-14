@@ -3,8 +3,6 @@ var nsUrl = require("url");
 var nsPath = require("path");
 var nsFs = require("fs");
 var nodemailer = require('nodemailer');
-var express = require("express");
-var bodyParser = require("body-parser");
 
 var srv = nsHttp.createServer(function (req, res) {
     var pathname = nsUrl.parse(req.url).pathname;
@@ -61,19 +59,29 @@ function HTTP_SendInternalServerError(res) {
 }
 
 function HTTP_SendNotFound(res) {
-    //res.writeHead(404, { "Content-type": "text/html" });
     res.end();
 }
 
 function sendDateToFile(pathname) {
-    //nsFs.appendFile('.\mailDetails\lessonsList.txt', pathname, function (err) {
+    var content = makeContentReadable(pathname);
     var path = './mailDetails/lessonsList.txt';
-    nsFs.appendFile(path, pathname + "\n", function (err) {
+    nsFs.appendFile(path, content + "\n", function (err) {
         if (err) throw err;
         console.log('Saved!');
     });
 }
 
+function makeContentReadable(pathname) {
+    var str = pathname;
+    var str = str.replace(/%20/g, " ");
+    var day = str.split("****")[0].replace("/", '');
+    var month = str.split("****")[1];
+    var content = str.split("****")[2];
+    var comments = str.split("****")[3];
+    var finalReport = "date: " + day + "." + month +
+        "      //content: " + content + "." + "     //other comments: " + comments;
+    return finalReport;
+}
 
 function sendTheMailWithNodemailer() {
     var pathToLessonsList = './mailDetails/lessonsList.txt';
