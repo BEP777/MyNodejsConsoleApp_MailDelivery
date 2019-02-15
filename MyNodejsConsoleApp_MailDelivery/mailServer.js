@@ -5,10 +5,11 @@ var nsUrl = require("url");
 var nsPath = require("path");
 var nsFs = require("fs");
 var nodemailer = require('nodemailer');
+var currentMonth = 0;
 
 var srv = nsHttp.createServer(function (req, res) {
     var pathname = nsUrl.parse(req.url).pathname;
-    console.log("path is "+pathname);
+    console.log("path is " + pathname);
     // check URL to send the right response
     switch (pathname) {
         case "/favicon.ico":
@@ -26,12 +27,14 @@ var srv = nsHttp.createServer(function (req, res) {
 
         case "/SendMail":
             console.log("click on send mail server side");
-            sendTheMailWithNodemailer();
+            sendTheMailWithNodemailer(currentMonth);
+            
             HTTP_SendOK(res, "");
             break;
 
         default:
             HTTP_SendNotFound(res);
+            currentMonth = getMonth(pathname);
             sendDateToFile(pathname);
     }
 });
@@ -64,12 +67,22 @@ function HTTP_SendNotFound(res) {
 }
 
 function sendDateToFile(pathname) {
+    //check for year
+
     var content = makeContentReadable(pathname);
-    var path = './mailDetails/lessonsList.txt';
+    var monthForFile = getMonth(pathname);
+    var path = './monthly_reports/' + monthForFile + '.2019.txt';
     nsFs.appendFile(path, content + "\n", function (err) {
         if (err) throw err;
         console.log('Saved!');
     });
+}
+
+function getMonth(pathname) {
+    var str = pathname;
+    var str = str.replace(/%20/g, " ");
+    var month = str.split("****")[1];
+    return month;
 }
 
 function makeContentReadable(pathname) {
@@ -84,8 +97,8 @@ function makeContentReadable(pathname) {
     return finalReport;
 }
 
-function sendTheMailWithNodemailer() {
-    var pathToLessonsList = './mailDetails/lessonsList.txt';
+function sendTheMailWithNodemailer(currentMonth) {
+    var pathToLessonsList = './monthly_reports/' + currentMonth + '.2019.txt';
     //title of the mail
     var subject = 'Lessons track - Avshalom Tam';
     //content of the mail

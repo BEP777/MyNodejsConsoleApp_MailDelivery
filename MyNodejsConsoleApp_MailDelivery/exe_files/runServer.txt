@@ -1,0 +1,2 @@
+cd C:\Users\avsha\Source\Repos\MyNodejsConsoleApp_MailDelivery\MyNodejsConsoleApp_MailDelivery
+node .\mailServer.js
