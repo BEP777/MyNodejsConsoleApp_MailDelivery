@@ -1,4 +1,4 @@
-﻿<!--  name: Avshalom Tam  //-->
+<!--  name: Avshalom Tam  //-->
 <!--  This is client side  //-->
 <!DOCTYPE html>
 <html>
@@ -208,7 +208,19 @@
         }
     </style>
 </head>
-<body>
+<body onload=setDate();>
+	<script type="text/javascript">		
+		function setDate()
+		{
+		n = new Date();
+		y = n.getFullYear();
+		m = n.getMonth() + 1;
+		d = n.getDate();
+		document.getElementById("day_pick").value = d;
+		document.getElementById("month_pick").value = m;
+		document.getElementById("day_pick").value = d;
+		}
+	</script>
     <!-- page design
     //-->
     <div class="table-title">
@@ -226,7 +238,7 @@
                 <td class="text-center">
                     <div class="currency">
                         <select class="custom-select" id="day_pick">
-                            <option value="0">בחר יום</option>
+                           <!--  <option value="0">בחר יום</option> --> 
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -267,7 +279,7 @@
                 <td class="text-center">
                     <div class="currency">
                         <select class="custom-select" id="month_pick">
-                            <option value="0">בחר חודש</option>
+                           <!--  --> <option value="0">בחר חודש</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
